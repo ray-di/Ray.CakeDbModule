@@ -97,6 +97,7 @@ inject the Connection instance when `MyThing` is instantiated using the Injector
 You can make any method run inside a transaction by using the `@Transactional` annotation. This is handy for saving operations:
 
 ```php
+use DateTime;
 use Ray\CakeDbModule\Annotation\Trasactional;
 use Ray\CakeDbModule\DatabaseInject;
 
@@ -113,7 +114,7 @@ class MyThing
     {
         $this->db->insert(
             'posts',
-            ['name' => 'First', 'show_on' => new \DataTime('+3 days')],
+            ['name' => 'First', 'show_on' => new DateTime('+3 days')],
             ['created' => 'datetime']
         );
     }
