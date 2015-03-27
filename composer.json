@@ -1,0 +1,29 @@
+{
+    "name": "ray/cake-database-module",
+    "keywords": [
+        "Ray.Di module",
+        "cakephp",
+		"dbal"
+    ],
+    "description": "cakephp/database module for Ray.Di",
+    "license": "BSD-3-Clause",
+    "require": {
+        "cakephp/database": "~3.0",
+        "ray/di": "~2.0"
+    },
+    "require-dev": {
+        "cakephp/datasource": "~3.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Ray\\CakeDbModule\\": "src/"
+        }
+    },
+	"autoload-dev": {
+        "psr-4": {
+            "Ray\\CakeDbModule\\": "tests/Fake/"
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}
