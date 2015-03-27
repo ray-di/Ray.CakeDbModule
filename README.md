@@ -25,7 +25,7 @@ class AppModule extends AbstractModule
         $this->install(new CakeDbModule('sqlite:///'));
 
         // or
-        $this->install(new CakeDbModule('mysql://root@localhost/cake_db')();
+        $this->install(new CakeDbModule('mysql://root@localhost/cake_db'));
     }
 }
 ```
