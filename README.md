@@ -81,7 +81,7 @@ class AppModule extends AbstractModule
 You can inject the connection instance on any class by using the `Ray\CakeDbModule\DatabaseInject` trait:
 
 ```php
-use `Ray\CakeDbModule\DatabaseInject;
+use Ray\CakeDbModule\DatabaseInject;
 
 class MyThing
 {
@@ -91,6 +91,35 @@ class MyThing
 
 This will make the methods `getDbConnection()` and `setDbConnection()` available in your class and will automatically
 inject the Connection instance when `MyThing` is instantiated using the Injector.
+
+### Wrapping methods inside a transaction
+
+You can make any method run inside a transaction by using the `@Transactional` annotation. This is handy for saving operations:
+
+```php
+use Ray\CakeDbModule\Annotation\Trasactional;
+use Ray\CakeDbModule\DatabaseInject;
+
+class MyThing
+{
+    use DatabaseInject;
+
+    /**
+     * This will run inside a new transaction
+     *
+     * @Transactional
+     */
+    public function storeSomething()
+    {
+        $this->db->insert(
+            'posts',
+            ['name' => 'First', 'show_on' => new \DataTime('+3 days')],
+            ['created' => 'datetime']
+        );
+    }
+}
+```
+
 
 ### Demo
 
