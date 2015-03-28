@@ -127,7 +127,7 @@ class MyThing
     $ php docs/demo/run.php
     // It works!
 
-### Requiuments
+### Requirements
 
  * PHP 5.4+
  * hhvm
