@@ -12,4 +12,5 @@ namespace Ray\CakeDbModule\Annotation;
  */
 final class Transactional
 {
+    public $value;
 }
