@@ -6,9 +6,7 @@
  */
 namespace Ray\CakeDbModule;
 
-use Cake\Database\Connection;
 use Doctrine\Common\Annotations\AnnotationRegistry;
-use Ray\CakeDbModule\Annotation\CakeDbConfig;
 use Ray\Di\AbstractModule;
 use Ray\Di\Scope;
 

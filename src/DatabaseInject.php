@@ -12,12 +12,12 @@ use Ray\Di\Di\Inject;
 trait DatabaseInject
 {
     /**
-     * @var Cake\Database\Connection
+     * @var \Cake\Database\Connection
      */
     private $db;
 
     /**
-     * @param Cake\Database\Connection $db
+     * @param \Cake\Database\Connection $db
      *
      * @Inject
      * @return void
