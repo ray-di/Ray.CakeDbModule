@@ -6,7 +6,6 @@
  */
 namespace Ray\CakeDbModule;
 
-use Ray\CakeDbModule\Annotation\Transactional;
 use Ray\Di\AbstractModule;
 
 class TransactionalModule extends AbstractModule

@@ -8,9 +8,7 @@ namespace Ray\CakeDbModule;
 
 use Cake\Database\Connection;
 use Cake\Datasource\ConnectionManager;
-use Doctrine\DBAL\DriverManager;
 use Ray\CakeDbModule\Annotation\CakeDbConfig;
-use Ray\Di\Di\Named;
 use Ray\Di\ProviderInterface;
 
 class ConnectionProvider implements ProviderInterface
