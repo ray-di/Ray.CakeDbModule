@@ -2,6 +2,7 @@
 
 namespace Ray\CakeDbModule;
 
+use Cake\Database\Connection;
 use Cake\Datasource\ConnectionManager;
 use Ray\Di\Injector;
 
@@ -14,7 +15,7 @@ class CakeDbModuleTest extends \PHPUnit_Framework_TestCase
             ->getInstance('Cake\Database\Connection');
 
         $this->assertInstanceOf('Cake\Database\Connection', $instance);
-        $this->assertInstanceOf('Cake\Database\Driver\Sqlite', $instance->driver());
+        $this->assertInstanceOf('Cake\Database\Driver\Sqlite', $instance->getDriver());
     }
 
     public function testWithDsn()
@@ -28,15 +29,17 @@ class CakeDbModuleTest extends \PHPUnit_Framework_TestCase
 
     public function testWithPreMadeConnection()
     {
-        ConnectionManager::config('default', [
+        ConnectionManager::setConfig('default', [
             'className' => 'Cake\Database\Connection',
             'driver' => 'Cake\Database\Driver\Sqlite'
         ]);
         $module = new CakeDbModule('default');
+        /** @var Connection $instance */
         $instance = (new Injector($module, $_ENV['TMP_DIR']))
             ->getInstance('Cake\Database\Connection');
-
-        $this->assertSame(ConnectionManager::get('default'), $instance);
+        $expected = ConnectionManager::getConfig('default');
+        $actual = $instance->config();
+        $this->assertSame($expected['driver'], $actual['driver']);
     }
 
     public function testTransactional()
